@@ -8,14 +8,16 @@
 import Foundation
 
 
-func CalculoDireto () {
+func CalculoDireto () -> Double? {
     var N1 = 0.0
     var N2 = 0.0
     
 print("São quantas notas por etapa?")
-var i = ((Int(readLine()!)!))
+let i = ((Double(readLine()!)!))
     
-    var V = [Double] (repeating: 0, count: i)
+    var V = [Double] (repeating: 0, count: Int(i))
+    var T = [Double] (repeating: 0, count: Int(i))
+    
     
     if (i==1) {
     print("Digite a nota da N1:\n")
@@ -26,28 +28,34 @@ var i = ((Int(readLine()!)!))
     }
     
     else {
-        for j in 0...i-1 {
-        print("Digite sua nota \(j) da N1 :\n")
+        for j in 0...Int(i)-1 {
+        print("Digite sua nota \(j+1) da N1:")
         V[j] = Double(readLine()!)!
             }
-        MediaAritimetica(i: i, V: V)
+        N1 = MediaAritimetica(i: i, V: V)
         
-    }
-    
-    
+        for h in 0...Int(i)-1 {
+        print("Digite sua nota \(h+1) da N2:")
+        T[h] = Double(readLine()!)!
+            }
+        N2 = MediaAritimetica(i: i, V: T)
+        }
     
     var media = (2*N1) + (3*N2)
     
     if (media >= 35) {
-        print("Aprovado!")
+        print("Sua média foi \(media / 5)\nAprovado!")
+        return nil
     }
     
-    if (media < 6) {
-        print ("Se você abrir o dicionario para falha, tu vai tá lá em exemplos")
+    if (media < 15) {
+        print ("Sua média foi \(media / 5)\nSe você abrir o dicionario para falha, tu vai tá lá em exemplos")
+        return nil
     }
     
     else {
-        print ("Tem que ir para a AF")
+        print ("Sua média foi \(media / 5)\nTem que ir para a AF")
+        return (media / 5)
     }
     
 }
