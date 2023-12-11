@@ -49,7 +49,7 @@ let i = ((Double(readLine()!)!))
     }
     
     if (media < 15) {
-        print ("Sua média foi \(media / 5)\nSe você abrir o dicionario para falha, tu vai tá lá em exemplos")
+        print ("Sua média foi \(media / 5)\nInfelizmente você foi reprovado, mais sorte na próxima vez")
         return nil
     }
     
